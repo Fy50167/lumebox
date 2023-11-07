@@ -1,0 +1,66 @@
+<div class = 'independent-test-div'>
+  <img src = 'https://cdn.shopify.com/s/files/1/0683/1839/6699/files/lumebox-tested-and-certified.png?v=1678089059' class = 'independent-image'>
+  <div id="AccordionGroup--{{ section.id }}"
+  class="accordion-group accordion-group-independent section-padding"
+  data-accordion-holder>
+    <div class="faq independent-faq {{ section.settings.width }}" data-section-id="{{ section.id }}" data-section-type="faq">
+        {%- for block in section.blocks -%}
+            {%- assign current_block = block.settings -%}
+        
+            {%- if block.type == 'question' and current_block.title != blank and current_block.content != blank -%}
+            <div class="accordion independent-accordion" data-accordion {{ block.shopify_attributes }}>
+                <h4 class="accordion__title" data-focus-element tabindex="0" data-accordion-toggle data-block-id="{{ block.id }}">
+                {{ current_block.title }}
+                
+                {%- render 'icon-plus' -%}
+                {%- render 'icon-minus' -%}
+                </h4>
+
+                <div class="rte accordion__body" data-accordion-body>
+                {{ current_block.content }}
+                </div>
+            </div>
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "Independent test",
+  "settings": [
+  ],
+  "blocks": [
+    {
+        "name": "Question",
+        "type": "question",
+        "settings": [
+            {
+            "type": "text",
+            "id": "title",
+            "label": "Question",
+            "default": "Frequently asked question"
+            },
+            {
+            "type": "richtext",
+            "id": "content",
+            "label": "Answer",
+            "default": "<p>Share details about your shipping policies, item returns, or customer service.<\/p>"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Independent test",
+      "category": "Image",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

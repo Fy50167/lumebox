@@ -1,0 +1,36 @@
+<div class = 'custom-header custom-header-peach'>
+    <p class = 'heading-header heading-header-2'>{{section.settings.header}}</p>
+    {%- if section.settings.sub_header != blank -%}
+    <p class = 'heading-subheading'>{{section.settings.sub_header}}</p>
+    {%- endif -%}
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Custom header 2",
+  "settings": [
+    {
+        "type": "text",
+        "id": "header",
+        "label": "text"
+    },
+    {
+      "type": "text",
+      "id": "sub_header",
+      "label": "text"
+    }
+  ],
+  "blocks" : [
+  ],
+   "presets": [
+    {
+      "name": "Custom header 2",
+      "category": "Image",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

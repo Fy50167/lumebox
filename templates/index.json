@@ -1,0 +1,303 @@
+{
+  "sections": {
+    "f55b382f-4e6b-48a4-9d11-2ed53de63004": {
+      "type": "section-hero",
+      "blocks": {
+        "template--17043783287067__f55b382f-4e6b-48a4-9d11-2ed53de63004-1669783000bf61509a-0": {
+          "type": "heading",
+          "settings": {
+            "title": "RED LIGHT THERAPY",
+            "heading_size": 3
+          }
+        },
+        "template--17043783287067__f55b382f-4e6b-48a4-9d11-2ed53de63004-1669783000bf61509a-1": {
+          "type": "text",
+          "settings": {
+            "description": "Want a wellnes center \nin your living room?",
+            "text_size": 7,
+            "text_style": "font-heading"
+          }
+        },
+        "template--17043783287067__f55b382f-4e6b-48a4-9d11-2ed53de63004-1669783000bf61509a-2": {
+          "type": "button",
+          "settings": {
+            "link_text": "BUY NOW",
+            "link": "",
+            "button_color": "btn--primary",
+            "button_style": "hero__btn btn btn--large caps"
+          }
+        }
+      },
+      "block_order": [
+        "template--17043783287067__f55b382f-4e6b-48a4-9d11-2ed53de63004-1669783000bf61509a-0",
+        "template--17043783287067__f55b382f-4e6b-48a4-9d11-2ed53de63004-1669783000bf61509a-1",
+        "template--17043783287067__f55b382f-4e6b-48a4-9d11-2ed53de63004-1669783000bf61509a-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Lumebox_Website_DesktopBanner.jpg",
+        "bg_position": "center-center",
+        "height": "screen-height-three-quarters",
+        "mobile_height": "screen-height-three-quarters--mobile",
+        "overlay_opacity": 0,
+        "overlay_color": "#000000",
+        "show_overlay_text": false,
+        "flex_align": "align--middle-left",
+        "bg_color": "",
+        "color": "#ffffff"
+      }
+    },
+    "7e9db6ad-8972-4e8e-b6d4-5de08073e783": {
+      "type": "section-logo-list",
+      "blocks": {
+        "template--17043783287067__7e9db6ad-8972-4e8e-b6d4-5de08073e783-1669783025033c6fd6-0": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_Circle1.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        },
+        "template--17043783287067__7e9db6ad-8972-4e8e-b6d4-5de08073e783-1669783025033c6fd6-1": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_Circle2.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        },
+        "template--17043783287067__7e9db6ad-8972-4e8e-b6d4-5de08073e783-1669783025033c6fd6-2": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_Circle3.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        },
+        "574500dc-ccc7-4cd0-a933-6d289a01dec4": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_Circle4.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        },
+        "79eec2ae-9d96-46ca-81c3-3ab4e13a8b75": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_Circle5.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--17043783287067__7e9db6ad-8972-4e8e-b6d4-5de08073e783-1669783025033c6fd6-0",
+        "template--17043783287067__7e9db6ad-8972-4e8e-b6d4-5de08073e783-1669783025033c6fd6-1",
+        "template--17043783287067__7e9db6ad-8972-4e8e-b6d4-5de08073e783-1669783025033c6fd6-2",
+        "574500dc-ccc7-4cd0-a933-6d289a01dec4",
+        "79eec2ae-9d96-46ca-81c3-3ab4e13a8b75"
+      ],
+      "settings": {
+        "title": "LUMEBOX",
+        "title_2": "Outperforms",
+        "title_secondary": "Independently Tested to be More Powerful than Leading Brand",
+        "trademark": "®",
+        "bg_color": "",
+        "color": "rgba(0,0,0,0)",
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    },
+    "0e0b3ede-7e99-422c-8fb8-ce41e0862217": {
+      "type": "section-double",
+      "blocks": {
+        "f0c233f3-c1ad-42ac-a7b6-1be7e3d1b9bd": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Why Red Light Therapy?<\/strong><\/p>",
+            "text_size": 6,
+            "text_style": "font-body"
+          }
+        },
+        "2b3fad6d-52d8-4dd1-ae41-96cd71039fdd": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Here's how Red light therapy can help:<\/strong><\/p>",
+            "text_size": 1,
+            "text_style": "font-body"
+          }
+        },
+        "38a3e7fb-72b9-4c75-94b6-46b8258d92f6": {
+          "type": "bullet",
+          "settings": {
+            "bullet": "Improves healthy skin"
+          }
+        },
+        "55dd28d7-f950-4afb-b8c5-7380000386d1": {
+          "type": "bullet",
+          "settings": {
+            "bullet": "Reduces inflammation"
+          }
+        },
+        "b863bac0-f8fc-4828-a2a9-6adfc80a81b3": {
+          "type": "bullet",
+          "settings": {
+            "bullet": "Less pain and recovery for cells"
+          }
+        },
+        "template--17043783287067__0e0b3ede-7e99-422c-8fb8-ce41e0862217-166978712441d6ec4e-2": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "BUY NOW",
+            "button_url": "",
+            "button_color": "btn--primary",
+            "button_style": "hero__btn btn btn--large caps"
+          }
+        }
+      },
+      "block_order": [
+        "f0c233f3-c1ad-42ac-a7b6-1be7e3d1b9bd",
+        "2b3fad6d-52d8-4dd1-ae41-96cd71039fdd",
+        "38a3e7fb-72b9-4c75-94b6-46b8258d92f6",
+        "55dd28d7-f950-4afb-b8c5-7380000386d1",
+        "b863bac0-f8fc-4828-a2a9-6adfc80a81b3",
+        "template--17043783287067__0e0b3ede-7e99-422c-8fb8-ce41e0862217-166978712441d6ec4e-2"
+      ],
+      "settings": {
+        "layout": "is-reversed",
+        "height": "five-fifty-height-hero-min--desktop",
+        "mobile_height": "screen-height-one-half-min--mobile",
+        "image": "shopify:\/\/shop_images\/Lumebox_Website.WhyRedLightTherapy.jpg",
+        "bg_position": "center-center",
+        "text_alignment": "text-left",
+        "bg_color": "#f0f0f0",
+        "color": "#ef5a24",
+        "padding_top": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "padding_bottom": 0
+      }
+    },
+    "80b9e1fd-c572-4daf-a00e-67e2fd0854b3": {
+      "type": "section-logo-list",
+      "blocks": {
+        "template--17043783287067__80b9e1fd-c572-4daf-a00e-67e2fd0854b3-16697875295b369843-0": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_TrustIcon1.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        },
+        "template--17043783287067__80b9e1fd-c572-4daf-a00e-67e2fd0854b3-16697875295b369843-1": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_TrustIcon2.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        },
+        "template--17043783287067__80b9e1fd-c572-4daf-a00e-67e2fd0854b3-16697875295b369843-2": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_TrustIcon3.png",
+            "logo_width": 180,
+            "link": ""
+          }
+        },
+        "cc53380d-0a33-4a56-808b-9300c270e475": {
+          "type": "logo-item",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Lumebox_Website_TrustIcon4_icononly..png",
+            "logo_width": 180,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--17043783287067__80b9e1fd-c572-4daf-a00e-67e2fd0854b3-16697875295b369843-0",
+        "template--17043783287067__80b9e1fd-c572-4daf-a00e-67e2fd0854b3-16697875295b369843-1",
+        "template--17043783287067__80b9e1fd-c572-4daf-a00e-67e2fd0854b3-16697875295b369843-2",
+        "cc53380d-0a33-4a56-808b-9300c270e475"
+      ],
+      "settings": {
+        "title": "",
+        "title_2": "",
+        "title_secondary": "",
+        "trademark": "",
+        "bg_color": "#f0f0f0",
+        "color": "",
+        "padding_top": 47,
+        "padding_bottom": 47
+      }
+    },
+    "95589cf3-759c-4988-9c14-ebc2c755da10": {
+      "type": "section-double",
+      "blocks": {
+        "362cc9f5-b105-43ce-b0b2-88c0b95b8881": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>without the Damaging UV<\/strong><\/p>",
+            "text_size": 8,
+            "text_style": "font-body"
+          }
+        },
+        "2ec7d61e-a488-432b-8297-62fd4e03a033": {
+          "type": "bullet",
+          "settings": {
+            "bullet": "Red light therapy used to be expensive; administered by salons or clinics only"
+          }
+        },
+        "7bc3424c-f928-406d-992e-1204c230316f": {
+          "type": "bullet",
+          "settings": {
+            "bullet": "Each visit could cost $200+"
+          }
+        },
+        "9b5c939a-1804-4fa3-b385-0d932fa5ef88": {
+          "type": "bullet",
+          "settings": {
+            "bullet": "LUMEBOX provides both BOTH red AND near infrared light in the comfort of your own home, without the damaging UV rays"
+          }
+        },
+        "template--17043783287067__95589cf3-759c-4988-9c14-ebc2c755da10-1669859749600af80a-2": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "BUY NOW",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "hero__btn btn btn--large caps"
+          }
+        }
+      },
+      "block_order": [
+        "362cc9f5-b105-43ce-b0b2-88c0b95b8881",
+        "2ec7d61e-a488-432b-8297-62fd4e03a033",
+        "7bc3424c-f928-406d-992e-1204c230316f",
+        "9b5c939a-1804-4fa3-b385-0d932fa5ef88",
+        "template--17043783287067__95589cf3-759c-4988-9c14-ebc2c755da10-1669859749600af80a-2"
+      ],
+      "settings": {
+        "layout": "",
+        "height": "sixty-fifty-height-hero-min--desktop",
+        "mobile_height": "screen-height-one-half-min--mobile",
+        "image": "shopify:\/\/shop_images\/Lumebox_Website_UV.jpg",
+        "bg_position": "center-center",
+        "text_alignment": "text-left",
+        "bg_color": "",
+        "color": "",
+        "padding_top": 80,
+        "padding_left": 80,
+        "padding_right": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "f55b382f-4e6b-48a4-9d11-2ed53de63004",
+    "7e9db6ad-8972-4e8e-b6d4-5de08073e783",
+    "0e0b3ede-7e99-422c-8fb8-ce41e0862217",
+    "80b9e1fd-c572-4daf-a00e-67e2fd0854b3",
+    "95589cf3-759c-4988-9c14-ebc2c755da10"
+  ]
+}

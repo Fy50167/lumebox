@@ -1,0 +1,39 @@
+{%- liquid
+  assign product = all_products[section.settings.home_product]
+-%}
+
+<div class = 'custom-header custom-header-orange position-relative'>
+    <img class = 'cart-add-image' src = 'https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Device-image.png?v=1678559634'>
+    <div class = 'cart-add-text'>
+        <p class = 'large-banner-text'>Bring A Wellness Center Into Your Living Room</p>
+        <p class = 'small-banner-text'>$599</p>
+    </div>
+    <div class = 'button-banner-div'>
+        {%- render 'add-to-cart-banner' product: product -%}         
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Cart Add Banner",
+  "settings": [
+    {
+        "type": "product",
+        "id": "home_product",
+        "label": "Product"
+    }
+  ],
+  "blocks" : [
+  ],
+   "presets": [
+    {
+      "name": "Cart Add Banner",
+      "category": "Image",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

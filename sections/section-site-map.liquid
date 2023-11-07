@@ -1,0 +1,54 @@
+
+<div class = 'site-map-wrapper'>
+        {%- if section.blocks.size > 0 -%}
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when 'linklist' -%}
+                    {%- assign linklist = linklists[block.settings.linklist] -%}
+                    <ul class="site-map-link-list">
+                        {%- if linklist != blank -%}
+                            {%- for link in linklist.links -%}
+                                <a class = 'site-map-link' href="{{ link.url }}"><li>{{ link.title }}</li></a>
+                            {%- endfor -%}
+                        {%- endif -%}
+                    </ul>
+                {%- endcase -%}
+            {%- endfor -%}
+        {%- endif -%}
+</div>
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "Site Map",
+  "settings": [
+  ],
+  "blocks" : [
+    {
+      "type": "linklist",
+      "name": "Link list",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "linklist",
+          "label": "Link list",
+          "default": "footer",
+          "info": "This menu won't show dropdown items."
+        }
+      ]
+    } 
+  ],
+   "presets": [
+    {
+      "name": "Site Map",
+      "category": "Image",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

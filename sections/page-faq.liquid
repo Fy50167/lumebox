@@ -1,0 +1,236 @@
+<!-- /sections/page-faq.liquid -->
+{%- liquid
+  assign bg_color = section.settings.bg_color
+  assign text_color = section.settings.color
+  assign border_color = section.settings.border_color
+-%}
+
+{%- style -%}
+  #AccordionGroup--{{ section.id }} {
+    --PT: {{ section.settings.padding_top }}px;
+    --PB: {{ section.settings.padding_bottom }}px;
+
+    {%- unless bg_color == 'rgba(0,0,0,0)' or bg_color == blank -%}
+      --bg: {{ bg_color }};
+    {%- endunless -%}
+
+    {%- unless text_color == 'rgba(0,0,0,0)' or text_color == blank -%}
+      --text: {{ text_color }};
+    {%- endunless -%}
+
+    {%- unless border_color == 'rgba(0,0,0,0)' or border_color == blank -%}
+      --border: {{ border_color }};
+    {%- endunless -%}
+  }
+{%- endstyle -%}
+
+<div id="AccordionGroup--{{ section.id }}"
+  class="accordion-group section-padding"
+  data-accordion-holder>
+  {%- if section.blocks.size > 0 -%}
+    <div class="faq {{ section.settings.width }}" data-section-id="{{ section.id }}" data-section-type="faq">
+      {%- for block in section.blocks -%}
+        {%- assign current_block = block.settings -%}
+       
+        {%- case block.type -%}
+          {%- when 'buttons' -%}
+            {%- if block.settings.button_text != blank -%}
+              {%- assign animation_counter = animation_counter | plus: 1 -%}
+              <div class = 'text-align-center'>
+                <a href="{{ block.settings.button_url | default: '#!' }}"
+                  class="standard__cta {{ block.settings.button_style }} {{ block.settings.button_color }} faq-button"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ animation_counter }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.button_text }}
+
+                  {%- if settings.show_arrow -%}
+                    {%- render 'icon-arrow-right' -%}
+                  {%- endif -%}
+                </a>
+              </div>
+            {%- endif -%}
+        {%- endcase -%}
+       
+        {%- if block.type == 'heading' and current_block.title != blank -%}
+          <h1 class="faq__title" {{ block.shopify_attributes }}>{{ current_block.title }}</h1>
+        {%- endif -%}
+
+        {%- if block.type == 'question' and current_block.title != blank and current_block.content != blank -%}
+          <div class="accordion" data-accordion {{ block.shopify_attributes }}>
+            <h4 class="accordion__title" data-focus-element tabindex="0" data-accordion-toggle data-block-id="{{ block.id }}">
+              {{ current_block.title }}
+              
+              {%- render 'icon-plus' -%}
+              {%- render 'icon-minus' -%}
+            </h4>
+
+            <div class="rte accordion__body" data-accordion-body>
+              {{ current_block.content }}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Accordion group",
+    "settings": [
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "wrapper--narrow",
+        "options": [
+          {"value": "wrapper", "label": "Normal"},
+          {"value": "wrapper--narrow", "label": "Narrow"},
+          {"value": "wrapper--full", "label": "Full width"}
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background"
+      },
+      {
+        "type": "color",
+        "id": "color",
+        "label": "Text"
+      },
+      {
+        "type": "color",
+        "id": "border_color",
+        "label": "Border"
+      },
+      {
+        "type": "header",
+        "content": "Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 50
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Heading",
+        "type": "heading",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "FAQ"
+          }
+        ]
+      },
+      {
+      "type": "buttons",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Text",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "label": "Color",
+          "default": "btn--neutral",
+          "options": [
+            {"value": "btn--primary", "label": "Bright accent"},
+            {"value": "btn--secondary", "label": "Secondary accent"},
+            {"value": "btn--link", "label": "Link color"},
+            {"value": "btn--neutral", "label": "Text color"},
+            {"value": "btn--black", "label": "Black"},
+            {"value": "btn--white", "label": "White"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Style",
+          "default": "standard__cta caps--large",
+          "options": [
+            {"value": "standard__cta caps--large", "label": "Capitalized text"},
+            {"value": "hero__btn btn btn--input caps", "label": "Small button"},
+            {"value": "hero__btn btn btn--large caps", "label": "Large button"},
+            {"value": "hero__btn btn btn--input btn--outline caps", "label": "Small outline button"},
+            {"value": "hero__btn btn btn--large btn--outline caps", "label": "Large outline button"}
+          ]
+        }
+      ]
+    },
+      {
+        "name": "Question",
+        "type": "question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question",
+            "default": "Frequently asked question"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Answer",
+            "default": "<p>Share details about your shipping policies, item returns, or customer service.<\/p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Accordion group",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "heading"
+          },
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

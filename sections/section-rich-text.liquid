@@ -1,0 +1,650 @@
+<!-- /sections/section-rich-text.liquid -->
+{%- liquid
+  assign bg_color = section.settings.bg_color
+  assign text_color = section.settings.color
+  assign animation_anchor = '#Rte--' | append: section.id
+-%}
+
+{%- style -%}
+  #Rte--{{ section.id }} {
+    --PT: {{ section.settings.padding_top }}px;
+    --PB: {{ section.settings.padding_bottom }}px;
+
+    {%- unless bg_color == 'rgba(0,0,0,0)' or bg_color == blank -%}
+      --bg: {{ bg_color }};
+    {%- endunless -%}
+
+    {%- unless text_color == 'rgba(0,0,0,0)' or text_color == blank -%}
+      --text: {{ text_color }};
+    {%- endunless -%}
+  }
+{%- endstyle -%}
+
+<section id="Rte--{{ section.id }}"
+  class="index-rte section-padding relative-position"
+  data-section-id="{{ section.id }}"
+  data-section-type="rich-text">
+  {%- if section.settings.show_logos -%}
+          <img class = 'logo-1' src = 'https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Lumebox_Website_UV-_Icon_only.png?v=1669782791'>
+          <img class = 'logo-3' src = 'https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Lumebox_Website_UV-_Icon_only.png?v=1669782791'>
+        {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="{{ section.settings.width }}">
+      <div class="text__standard {{ section.settings.align_text }} {%- if section.settings.mobile_left -%}mobile-text-left{%- endif -%}">
+        {%- if section.settings.show_guarantee -%}
+          <div class = 'guarantee-img'>
+            <img src = 'https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Lumebox_Website_GuidingLightIcon.png?v=1669782792' class = 'guiding-light'>
+          </div>
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'heading' -%}
+              {%- if block.settings.title != blank -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'heading-size-' -%}
+                <h2 class="standard__heading {{ font_size_class }}"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ forloop.index }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.title }}
+                </h2>
+              {%- endif -%}
+             
+            {%- when 'black_text' -%}
+              {%- if block.settings.black_text != blank -%}
+                {%- assign animation_counter = animation_counter | plus: 1 -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                <div class="black {{ font_size_class }} "
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ animation_counter }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.black_text }}
+                </div>
+              {%- endif -%}
+            
+            {%- when 'black_text_top_margin' -%}
+              {%- if block.settings.black_text_top_margin != blank -%}
+                {%- assign animation_counter = animation_counter | plus: 1 -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                <div class="black {{ font_size_class }} top-margin"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ animation_counter }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.black_text_top_margin }}
+                </div>
+              {%- endif -%}
+
+            {%- when 'grey_text_top_margin' -%}
+              {%- if block.settings.grey_text_top_margin != blank -%}
+                {%- assign animation_counter = animation_counter | plus: 1 -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                <div class="grey-text {{ font_size_class }} top-margin"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ animation_counter }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.grey_text_top_margin }}
+                </div>
+              {%- endif -%}
+
+              
+            {%- when 'grey_text' -%}
+              {%- if block.settings.grey_text != blank -%}
+                {%- assign animation_counter = animation_counter | plus: 1 -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                <div class="grey-text {{ font_size_class }}"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ animation_counter }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.grey_text }}
+                </div>
+              {%- endif -%}
+
+            {%- when 'subheading' -%}
+              {%- if block.settings.subheading != blank -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                <p class="standard__subheading {{ font_size_class }}"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ forloop.index }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.subheading }}
+                </p>
+              {%- endif -%}
+
+            {%- when 'text' -%}
+              {%- if block.settings.text != blank -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                <div class="standard__rte {{ font_size_class }} {{ block.settings.text_style }} smaller-margin"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ forloop.index }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+
+                </div>
+              {%- endif -%}
+            
+            {%- when 'text_top_margin' -%}
+              {%- if block.settings.text_top_margin != blank -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                <div class="standard__rte {{ font_size_class }} {{ block.settings.text_style }} smaller-margin top-margin"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ forloop.index }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.text_top_margin }}
+
+                </div>
+              {%- endif -%}
+
+            {%- when 'checked_text' -%}
+                    <p class = original-price>Normal Price: <span class = 'crossed-out'>$599</span></p>
+
+
+            {%- when 'table' -%}
+              <table class = 'top-margin benefits-table' cellspacing = '0' cellpadding = '0'>
+                <tr>
+                  <th class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Skin (anti-ageing)</p></th>
+                  <th class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Inflammation/Pain</p></th>
+                </tr>
+                <tr>
+                  <th class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Tissue repair</p></th>
+                  <th class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Muscle recovery</p></th>
+                </tr>
+                <tr>
+                  <th class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Wound healing</p></th>
+                  <th class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Mood and cognition</p></th>
+                </tr>
+              </table>
+
+              <div class = 'top-margin benefits-table-mobile'>
+      
+         
+                  <div class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Skin (anti-ageing)</p></div>
+             
+                  <div class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Inflammation/Pain</p></div>
+             
+                  <div class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Tissue repair</p></div>
+             
+                  <div class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Muscle recovery</p></div>
+              
+                  <div class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Wound healing</p></div>
+              
+                  <div class = 'table-cell'><div class = 'custom-bullet table-bullet'></div><p class = 'table-text'>Mood and cognition</p></div>
+       
+              </div>
+
+
+
+            {%- when 'columns' -%}
+              {%- if block.settings.text != blank -%}
+                {%- assign font_size_class = block.settings.text_size | prepend: 'body-size-' -%}
+                {%- assign text_columns_class = block.settings.text_columns | prepend: 'columns--' -%}
+                <div class="standard__rte {{ font_size_class }} {{ text_columns_class }} {{ block.settings.text_style }}"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ forloop.index }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </div>
+              {%- endif -%}
+
+            {%- when 'buttons' -%}
+              {%- if block.settings.button_text != blank -%}
+                <a href="{{ block.settings.button_url | default: '#!' }}"
+                  class="standard__cta {{ block.settings.button_style }} {{ block.settings.button_color }} round-corners scroll-button top-margin"
+                  data-aos="hero"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-order="{{ forloop.index }}"
+                  {{ block.shopify_attributes }}>
+                  {{ block.settings.button_text }}
+
+                  {%- if settings.show_arrow -%}
+                    {%- render 'icon-arrow-right' -%}
+                  {%- endif -%}
+                </a>
+              {%- endif -%}
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- else -%}
+    {%- render 'no-blocks' -%}
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Rich text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_left",
+      "label": "Mobile left align",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantee",
+      "label": "Show guarantee",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logos",
+      "label": "Show logos",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper",
+      "options": [
+        {"value": "wrapper", "label": "Normal"},
+        {"value": "wrapper--narrow", "label": "Narrow"},
+        {"value": "wrapper--full", "label": "Full width"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "select",
+      "id": "align_text",
+      "label": "Text alignment",
+      "default": "text-left",
+      "options": [
+        {"value": "text-left","label": "Left"},
+        {"value": "text-center","label": "Centered"}
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "table",
+      "name": "Table",
+      "settings": [
+
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Rich text"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "min": 1,
+          "max": 15,
+          "step": 1,
+          "default": 8
+        }
+      ]
+    },
+    {
+      "type": "black_text",
+      "name": "Black Text",
+      "settings": [
+          {
+              "type": "richtext",
+              "id": "black_text",
+              "label": "Black Text",
+              "default": "<p>text<p>"
+          },
+          {
+              "type": "range",
+              "id": "text_size",
+              "label": "Text size",
+              "min": 1,
+              "max": 15,
+              "step": 1,
+              "default": 4
+          }
+      ]
+    },
+        {
+      "type": "black_text_top_margin",
+      "name": "Black Text Top Margin",
+      "settings": [
+          {
+              "type": "richtext",
+              "id": "black_text_top_margin",
+              "label": "Black Text Top Margin",
+              "default": "<p>text<p>"
+          },
+          {
+              "type": "range",
+              "id": "text_size",
+              "label": "Text size",
+              "min": 1,
+              "max": 15,
+              "step": 1,
+              "default": 4
+          }
+      ]
+    },
+    {
+      "type": "grey_text_top_margin",
+      "name": "Grey Text Top Margin",
+      "settings": [
+          {
+              "type": "richtext",
+              "id": "grey_text_top_margin",
+              "label": "Grey Text Top Margin",
+              "default": "<p>text<p>"
+          },
+          {
+              "type": "range",
+              "id": "text_size",
+              "label": "Text size",
+              "min": 1,
+              "max": 15,
+              "step": 1,
+              "default": 4
+          }
+      ]
+    },
+    {
+      "type": "grey_text",
+      "name": "Grey Text",
+      "settings": [
+          {
+              "type": "richtext",
+              "id": "grey_text",
+              "label": "Grey Text",
+              "default": "<p>text<p>"
+          },
+          {
+              "type": "range",
+              "id": "text_size",
+              "label": "Text size",
+              "min": 1,
+              "max": 15,
+              "step": 1,
+              "default": 4
+          }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "Image_width",
+          "label": "Width",
+          "unit": "px",
+          "min": 100,
+          "max": 180,
+          "step": 10,
+          "default": 100
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Introducing"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "min": 1,
+          "max": 15,
+          "step": 1,
+          "default": 3
+        }
+      ]
+    },
+    {
+      "type": "checked_text",
+      "name": "Checked Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "checked_text",
+          "label": "Checked Text",
+          "default": "n/a"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_599",
+          "label": "Show 599",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "min": 1,
+          "max": 15,
+          "step": 1,
+          "default": 4
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text style",
+          "default": "font-body",
+          "options": [
+            {"value": "font-heading", "label": "Heading"},
+            {"value": "font-body", "label": "Body"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text_top_margin",
+      "name": "Text top margin",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text_top_margin",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "min": 1,
+          "max": 15,
+          "step": 1,
+          "default": 4
+        }
+      ]
+    },
+    {
+      "type": "columns",
+      "name": "Columns",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "range",
+          "id": "text_columns",
+          "label": "Columns",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1,
+          "info": "Desktop only"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "min": 1,
+          "max": 15,
+          "step": 1,
+          "default": 4
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text style",
+          "default": "font-body",
+          "options": [
+            {"value": "font-heading", "label": "Heading"},
+            {"value": "font-body", "label": "Body"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Text",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "label": "Color",
+          "default": "btn--neutral",
+          "options": [
+            {"value": "btn--primary", "label": "Bright accent"},
+            {"value": "btn--secondary", "label": "Secondary accent"},
+            {"value": "btn--link", "label": "Link color"},
+            {"value": "btn--neutral", "label": "Text color"},
+            {"value": "btn--black", "label": "Black"},
+            {"value": "btn--white", "label": "White"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Style",
+          "default": "standard__cta caps--large",
+          "options": [
+            {"value": "standard__cta caps--large", "label": "Capitalized text"},
+            {"value": "hero__btn btn btn--input caps", "label": "Small button"},
+            {"value": "hero__btn btn btn--large caps", "label": "Large button"},
+            {"value": "hero__btn btn btn--input btn--outline caps", "label": "Small outline button"},
+            {"value": "hero__btn btn btn--large btn--outline caps", "label": "Large outline button"}
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "subheading"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "buttons"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,187 @@
+
+{%- liquid
+  assign heading = section.settings.title
+  assign logo_opacity_default = section.settings.logo_opacity | default: 100
+  assign logo_opacity = logo_opacity_default | times: 0.01
+  assign slider_text_show = false
+  assign bg_color = section.settings.bg_color
+  assign text_color = section.settings.color
+-%}
+
+{%- style -%}
+  #Logos--{{ section.id }} {
+    --PT: {{ section.settings.padding_top }}px;
+    --PB: {{ section.settings.padding_bottom }}px;
+    --logo-opacity: {{ logo_opacity }};
+
+    {%- unless text_color == 'rgba(0,0,0,0)' or text_color == blank -%}
+      --text: {{ text_color }};
+    {%- endunless -%}
+
+    {%- unless bg_color == 'rgba(0,0,0,0)' or bg_color == blank -%}
+      --bg: {{ bg_color }};
+    {%- endunless -%}
+  }
+{%- endstyle -%}
+
+<div class="logos__wrapper grey"
+  data-section-id="{{ section.id }}"
+  data-section-type="logos">
+      {%- if heading != blank -%}
+        <h5 class="h5 logos__title">{{ heading }}<span class = "trademark">{{section.settings.trademark}}</span> {{section.settings.title_2}}</h5>
+      {%- endif -%}
+      {%- if section.settings.title_secondary != blank -%}
+        <p class = "p logos__secondary">{{section.settings.title_secondary}}</p>
+      {%- endif -%}
+      
+      {%- if section.blocks.size > 0 -%}
+        <div class="custom-logo-list logo-list-2 center">
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign logo = block.settings.logo
+              -%}
+
+                  {%- if logo != blank -%}
+                    <div class="logos__img grey-logo grey-logo-2 lazyload fade-in"
+                      data-bgset="{% render 'bgset', image: logo %}"
+                      data-sizes="auto"
+                      data-parent-fit="cover"
+                      data-aspectratio="{{ logo.aspect_ratio }}">
+                    </div>
+                    {%- assign font_size_class = block.settings.logo_text_size | prepend: 'body-size-' -%}
+                    <div class="black {{ font_size_class }}"
+                      data-aos="hero"
+                      data-aos-anchor="{{ animation_anchor }}"
+                      data-aos-order="{{ animation_counter }}"
+                      {{ block.shopify_attributes }}>
+                      {{ block.settings.logo_text }}
+                    </div>
+
+                  {%- else -%}
+                    <div class="logos__img svg-placeholder" style="width: 50px; height: 50px;">
+                      {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {%- endif -%}
+
+            {%- endfor -%}
+        </div>
+      {%- else -%}
+        {%- render 'no-blocks' -%}
+      {%- endif -%}
+</div>
+
+
+{% schema %}
+{
+  "name": "Grey logo list 2",
+  "max_blocks": 25,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Logo list"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Heading After",
+      "default": "list"
+    },
+    {
+      "type": "text",
+      "id": "title_secondary",
+      "label": "Secondary Heading",
+      "default": "Description"
+    },
+    {
+      "type": "text",
+      "id": "trademark",
+      "label": "Trademark",
+      "default": "®"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 47
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 47
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo-item",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "richtext",
+          "id": "logo_text",
+          "label": "Text"
+        },
+        {
+              "type": "range",
+              "id": "logo_text_size",
+              "label": "Text size",
+              "min": 1,
+              "max": 15,
+              "step": 1,
+              "default": 4
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grey logo list 2",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "logo-item"
+        },
+        {
+          "type": "logo-item"
+        },
+        {
+          "type": "logo-item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

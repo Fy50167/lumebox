@@ -1,0 +1,82 @@
+
+
+
+
+<div class = 'custom-footer-wrapper'>
+
+        <p class = 'large-questions-text'>HAVE QUESTIONS OR CONCERNS:</p>
+     <p class = 'small-questions-text'>help@thelumebox.com</p>
+
+        <div class = 'custom-footer-text'>le brand dedicated to the health and well-being of all individuals. LUMEBOX® products are not
+            intended to diagnose, cure, or prevent specific dise
+            <p>LUMEBOX® is a global red light therapy (RLT) lifestyases or medical conditions. Certified health professionals should always be consulted prior to using
+            LUMEBOX® products, and professional medical attention should be sought with regard to
+            any serious or life-threatening conditions.<br><br>*The statements on this website have not been evaluated by the FDA (U.S. Food & Drug Administration). While registered with the FDA, our products are
+            not intended to diagnose, treat, cure, or prevent any disease. LUMEBOX products are low-risk, general wellness/health devices intended for personal use
+            under recommended guidelines for use of the product. Individuals should consult with a licensed medical professional prior to use.</p>
+        </div>
+        <div class = 'white-logo'>
+            <img src = 'https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Lumebox_Website_Whitelogo_ff37a18a-94c8-4942-9ffd-e67c293ebd61.png?v=1671587247' class = 'white-logo-img'>
+        </div>
+        {%- if section.blocks.size > 0 -%}
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when 'linklist' -%}
+                    {%- assign linklist = linklists[block.settings.linklist] -%}
+                    <div class="custom-link-list">
+                        {%- if linklist != blank -%}
+                            {%- for link in linklist.links -%}
+                                <a class = 'custom-footer-links' href="{{ link.url }}">{{ link.title }}</a><p class = 'divider-affiliate'>  |  </p>
+                            {%- endfor -%}
+                        {%- endif -%}
+                    </div>
+                {%- endcase -%}
+            {%- endfor -%}
+        {%- endif -%}
+        <div class = 'custom-footer-text copyright'>
+        <p>Copyright © 2023 Lumebox. All Rights Reserved.</p>
+        </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Questions Affiliate",
+  "settings": [
+    {
+        "type": "text",
+        "id": "header",
+        "label": "text"
+    },
+    {
+      "type": "text",
+      "id": "sub_header",
+      "label": "text"
+    }
+  ],
+  "blocks" : [
+    {
+      "type": "linklist",
+      "name": "Link list",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "linklist",
+          "label": "Link list",
+          "default": "footer",
+          "info": "This menu won't show dropdown items."
+        }
+      ]
+    } 
+  ],
+   "presets": [
+    {
+      "name": "Questions Footer Affiliate",
+      "category": "Image",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

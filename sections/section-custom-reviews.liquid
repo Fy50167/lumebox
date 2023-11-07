@@ -1,0 +1,132 @@
+
+<div class="carousel"
+  data-flickity='{ "wrapAround": true, "autoPlay": 4000, "pauseAutoPlayOnHover": false }'>
+    {% for block in section.blocks %}
+        <div class = 'testimonial-card'>
+            <div class = 'testimonial-image'>
+                <img class = 'person-image' src = "{{block.settings.bio_image | img_url: 'master'}}">
+            </div>
+            <div class = 'testimonial-text'>
+                <p>{{block.settings.review_text}}</p>
+            </div>
+            <div class = 'testimonial-name'>
+                <p>{{block.settings.customer_name}}</p>
+            </div>
+            <div class = 'testimonial-location'>
+                <p>{{block.settings.customer_location}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class = 'desktop-testimonials'>
+  <div class = 'testimonial-card'>
+    <div class = 'testimonial-image'>
+        <img class = 'person-image' src = "https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Lumebox_Website_Testimonial1.png?v=1669782791">
+    </div>
+    <div class = 'testimonial-text'>
+        <p>"Thank you thank you so much I got my LUMEBOX and I am in love used it once on my left knee which I have osteoarthritis and has been bugging me for 2 days. 12 minutes and went on to do some chores and I was able to squat and get up without screaming."</p>
+    </div>
+    <div class = 'testimonial-name'>
+        <p>- JOSLIN C.</p>
+    </div>
+    <div class = 'testimonial-location'>
+        <p>California, USA</p>
+    </div>
+  </div>
+  <div class = 'testimonial-card'>
+    <div class = 'testimonial-image'>
+        <img class = 'person-image' src = "https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Lumebox_Website_Testimonial2.png?v=1669782791">
+    </div>
+    <div class = 'testimonial-text'>
+        <p>"I had been experiencing significant back pain in the last year. Acupuncture, hydrotherapy, and cryotherapy had me at a point of desperation, and then found significant relief after RLT, and that's why it's a MUST item on my nightstand."</p>
+    </div>
+    <div class = 'testimonial-name'>
+        <p>- ALEX H.</p>
+    </div>
+    <div class = 'testimonial-location'>
+        <p>New York, USA</p>
+    </div>
+  </div>
+  <div class = 'testimonial-card'>
+    <div class = 'testimonial-image'>
+        <img class = 'person-image' src = "https://cdn.shopify.com/s/files/1/0683/1839/6699/files/Lumebox_Website_Testimonial3.png?v=1669782792">
+    </div>
+    <div class = 'testimonial-text'>
+        <p>"I discovered RLT when I learned that my wrinkles weren't a candidate for Botox. I didn't see much change at first but my dermatologist noticed how great my skin looked. I used to be a dancer so I'll flash the red light on my muscles when I feel strain or pain.</p>
+    </div>
+    <div class = 'testimonial-name'>
+        <p>- MINNIE L..</p>
+    </div>
+    <div class = 'testimonial-location'>
+        <p>Florida, USA</p>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Custom testimonials",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "header",
+          "content":"Testimonial"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer name",
+          "default": "Example Customer"
+        },
+        {
+          "type": "text",
+          "id": "customer_location",
+          "label": "Subheading",
+          "default": "-Example Location"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Testimonial",
+          "default": "Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers."
+        },
+        {
+          "type": "image_picker",
+          "id": "bio_image",
+          "label": "Bio image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom testimonials",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
